@@ -25,6 +25,9 @@ public class SpriteChanger : MonoBehaviour
         //   // PickARandomColor(); 
         //}
 
+        //spriteRenderer.sprite.bounds.Contains(mousePos) Only checks for (0,0,0) DO NOT USE 
+        //spriteRenderer.bounds.Contains(mousePos) Correct position of desired gameObject 
+
         //get the mouse position in the world 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
