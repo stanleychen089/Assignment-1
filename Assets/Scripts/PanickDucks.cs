@@ -12,11 +12,18 @@ public class PanickDucks : MonoBehaviour
     Vector2 bottomLeft;
     Vector2 topRight;
 
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        //code from 2-4 readings, which converts screen coordinate as world coordinate so code adjusts to different world sizes 
         bottomLeft = Camera.main.ScreenToWorldPoint(Vector2.zero);
         topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+
+        //random position 
+        transform.position = new Vector2(Random.Range(-5, 5),-4);
     }
 
     // Update is called once per frame
@@ -27,7 +34,8 @@ public class PanickDucks : MonoBehaviour
         Vector2 moonDistance = moonPos.position;
 
         //speed increases when moon is closer to centre 
-        duckSpeed = (9 + moonDistance.x);
+        //random adds a jitter effect to simulate swimming 
+        duckSpeed = (Random.Range(9,11) + moonDistance.x);
 
         //vector that obtains duck's x position to move it 
         Vector2 newPos = transform.position;

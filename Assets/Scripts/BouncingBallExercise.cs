@@ -5,6 +5,10 @@ public class BouncingBallExercise : MonoBehaviour
     public float speedX = 0.01f;
     public float speedY = 0.01f;
 
+    //randomizes starting position
+    float startingPosition = Random.Range(-5, 5);
+
+
     Vector2 bottomLeft;
     Vector2 topRight;
 
@@ -14,12 +18,14 @@ public class BouncingBallExercise : MonoBehaviour
         transform.position = (Vector2) transform.position + Random.insideUnitCircle * 5;
         bottomLeft = Camera.main.ScreenToWorldPoint(Vector2.zero);
         topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector2 newPos = transform.position;
+        newPos.x = startingPosition;
         newPos.x += speedX * Time.deltaTime; 
         newPos.y += speedY * Time.deltaTime;
 
